@@ -36,10 +36,6 @@ Launches the test runner in the interactive watch mode.
 
 Builds the app for production to the `build` folder.
 
-#### `npm run generate:component`
+#### `npm run generate`
 
-Generates component code template
-
-#### `npm run generate:page`
-
-Generates page code template
+Generates code template
