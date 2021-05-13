@@ -1,16 +1,16 @@
 module.exports = {
-  prompt: ({ inquirer }) => {
+  prompt: ({ prompter }) => {
     const questions = [
       {
         type: 'input',
         name: 'componentName',
-        message: 'What is the component name?',
+        message: 'Component name:',
         validate: (f) => !!f || 'Required',
       },
       {
         type: 'input',
         name: 'dir',
-        message: 'Where is the directory? (Optional)',
+        message: 'Directory (default "components"): ',
       },
       {
         type: 'confirm',
@@ -24,7 +24,7 @@ module.exports = {
       },
     ];
 
-    return inquirer.prompt(questions).then((answers) => {
+    return prompter.prompt(questions).then((answers) => {
       const { componentName, dir } = answers;
       const path = `${dir ? `${dir}/` : 'components/'}${componentName}`;
       const absPath = `src/${path}`;

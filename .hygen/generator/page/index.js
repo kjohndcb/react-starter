@@ -1,26 +1,25 @@
 module.exports = {
-  prompt: ({ inquirer }) => {
+  prompt: ({ prompter }) => {
     const questions = [
       {
         type: 'input',
         name: 'componentName',
-        message: 'What is the page name?',
+        message: 'Page name:',
         validate: (f) => !!f || 'Required',
       },
       {
         type: 'input',
         name: 'dir',
-        message: 'Where is the directory? (Optional)',
+        message: 'Directory (default "pages"):',
       },
       {
         type: 'confirm',
         name: 'isTestIncluded',
         message: 'Include test file?',
-        default: true,
       },
     ];
 
-    return inquirer.prompt(questions).then((answers) => {
+    return prompter.prompt(questions).then((answers) => {
       const { componentName, dir } = answers;
       const path = `${dir ? `${dir}/` : 'pages/'}${componentName}`;
       const absPath = `src/${path}`;
