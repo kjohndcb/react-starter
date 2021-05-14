@@ -18,7 +18,8 @@ module.exports = {
 };
 
 function prerender() {
-  if (!process.env.PRERENDER) return [];
+  if (process.env.PRERENDER !== 'true') return [];
+
   const routesToPrerender = routes
     .filter((route) => !~route.path.indexOf(':'))
     .map((route) => (route.path === '*' ? '/404' : route.path));
