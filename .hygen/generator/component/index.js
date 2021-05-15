@@ -1,3 +1,5 @@
+const { toPascalCase } = require('../../utils');
+
 module.exports = {
   prompt: ({ prompter }) => {
     const questions = [
@@ -5,12 +7,13 @@ module.exports = {
         type: 'input',
         name: 'componentName',
         message: 'Component name:',
+        format: (componentName) => toPascalCase(componentName),
         validate: (f) => !!f || 'Required',
       },
       {
         type: 'input',
         name: 'dir',
-        message: 'Directory (default "components"): ',
+        message: 'Directory (default "components"):',
       },
       {
         type: 'confirm',

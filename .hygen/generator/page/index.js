@@ -1,3 +1,5 @@
+const { toPascalCase } = require('../../utils');
+
 module.exports = {
   prompt: ({ prompter }) => {
     const questions = [
@@ -5,6 +7,7 @@ module.exports = {
         type: 'input',
         name: 'componentName',
         message: 'Page name:',
+        format: (componentName) => toPascalCase(componentName),
         validate: (f) => !!f || 'Required',
       },
       {
