@@ -8,6 +8,7 @@ module.exports = {
         name: 'componentName',
         message: 'Page name:',
         format: (componentName) => toPascalCase(componentName),
+        result: (componentName) => toPascalCase(componentName),
         validate: (f) => !!f || 'Required',
       },
       {
