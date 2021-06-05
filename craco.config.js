@@ -30,9 +30,7 @@ function prerender() {
       staticDir: path.join(__dirname, 'build'),
       renderer: new Renderer({
         injectProperty: '__PRERENDER__',
-        inject: {
-          SC_DISABLE_SPEEDY: true,
-        },
+        inject: true,
       }),
     }),
   ];

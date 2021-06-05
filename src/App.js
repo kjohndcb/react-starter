@@ -5,7 +5,7 @@ import {
   useLocation,
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider, StyleSheetManager } from 'styled-components';
 
 import routes from '@/routes';
 import theme from '@/styles/theme';
@@ -18,12 +18,14 @@ const generatedRoutes = generateRoutes();
 function App() {
   return (
     <Provider store={store}>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Router>
-          <Content />
-        </Router>
-      </ThemeProvider>
+      <StyleSheetManager disableCSSOMInjection={window.__PRERENDER__}>
+        <GlobalStyle />
+        <ThemeProvider theme={theme}>
+          <Router>
+            <Content />
+          </Router>
+        </ThemeProvider>
+      </StyleSheetManager>
     </Provider>
   );
 }
