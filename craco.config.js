@@ -11,7 +11,7 @@ module.exports = {
   },
   webpack: {
     alias: {
-      '@': path.resolve('src'),
+      '@': path.resolve(__dirname, 'src'),
     },
     plugins: [...whenProd(prerender, [])],
   },

@@ -1,8 +1,8 @@
 ---
-to: "<%= isTestIncluded ? `${absPath}/${componentName}.test.js` : null %>"
+to: "<%= isTestIncluded ? `${absPath}/__tests__/${componentName}.test.js` : null %>"
 ---
 import { render } from '@testing-library/react';
-import <%= componentName %> from './<%= componentName %>';
+import <%= componentName %> from '@/<%= path %>';
 
 test('renders without errors', () => {
   render(<<%= componentName %> />);

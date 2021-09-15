@@ -17,16 +17,16 @@ const generatedRoutes = generateRoutes();
 
 function App() {
   return (
-    <Provider store={store}>
-      <StyleSheetManager disableCSSOMInjection={window.__PRERENDER__}>
+    <StyleSheetManager disableCSSOMInjection={window.__PRERENDER__}>
+      <Provider store={store}>
         <GlobalStyle />
         <ThemeProvider theme={theme}>
           <Router>
             <Content />
           </Router>
         </ThemeProvider>
-      </StyleSheetManager>
-    </Provider>
+      </Provider>
+    </StyleSheetManager>
   );
 }
 
